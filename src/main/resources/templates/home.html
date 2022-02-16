@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Store Home</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<style>
+.btn-clas
+{
+	margin-left: 600px;
+	margin-top: 100px;
+}
+.btn-class1
+{
+	margin-left: 615px;
+	margin-top: 100px;
+}
+.btn-class
+{
+	margin-left: 610px;
+	margin-top: 100px;
+}
+.my-class {
+    background:rgb(0, 153, 255);
+	padding: 10px;
+}
+.header{
+	font-family:Georgia, 'Times New Roman', Times, serif;
+	color:white;
+	margin-left: 20px;
+	font-size: 30px;
+}
+.log-class
+{
+	margin-left:1240px;
+}
+.head{
+	color:red;
+}
+</style>	
+</head>
+<body>
+	<div class="Container-fluid my-class">
+		<div row="col-md-6">
+			<h1 class="header">Welcome <span class="head" th:text="${book.email}"></span> </h1>
+			<a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="btn btn-danger btn-sm mb-3 log-class">Logout</a>
+		</div>
+	</div>
+	<a th:href="@{/addBooks}" class="btn btn-warning btn-lg btn-class" role="button">Add Books</a>
+	<a th:href="@{/ShowCollections}" class="btn btn-warning btn-lg btn-clas" role="button">View Collections</a>
+	<a th:href="@{/ListUsersData}" class="btn btn-warning btn-lg btn-class1" role="button">List Users</a>
+</body>
+</html>

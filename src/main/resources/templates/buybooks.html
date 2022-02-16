@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User </title>
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+ crossorigin="anonymous">
+ <style>
+    .header{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:white;
+    margin-left: 50px;
+    font-size: 40px;
+}
+.my-class {
+    background:rgb(0, 153, 255);
+    padding: 10px;
+}
+.colle-cl
+{
+    margin-top: 5px;
+}
+.log-class
+{
+	margin-left:1810px;
+}
+</style>
+</head>
+<body>
+    <div class="Container-fluid my-class">
+		<div row="col-md-6">
+			<h1 class="header">Buy Books</h1>
+            <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="btn btn-danger btn-sm mb-3 log-class">Logout</a>
+		</div>
+	</div> 
+ <div class="container my-2">
+    <a th:href="@{/userHome}" class="btn btn-primary btn-sm mb-3 colle-cl"> Back to Home</a>
+ <h1>Books Collections</h1>
+ 
+  <table border="1" class = "table table-striped table-responsive-md">
+   <thead>
+    <tr>
+     <th>Book Title</th>
+     <th>Author Name</th>
+     <th>Category</th>
+     <th>Books Available</th>
+     <th>Buy Books</th>
+     
+    </tr>
+   </thead>
+   <tbody>
+    <tr th:each="Book : ${collections}">
+     <td th:text="${Book.bookName}"></td>
+     <td th:text="${Book.authorName}"></td>
+     <td th:text="${Book.category}"></td>
+     <td th:text="${Book.count}"></td>
+     <td><a th:href = "@{/BuyBook/{id}(id=${Book.id})}" th:object="${myCollection}" class="btn btn-primary btn-sm mb-3">Buy</a></td> 
+    </tr>
+   </tbody> 
+  </table>
+ </div>
+</body>
+</html>
